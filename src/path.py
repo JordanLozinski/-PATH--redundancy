@@ -11,10 +11,11 @@ with open('backup.txt', 'w+') as fileBackup:
 path = path.split(";")
 oldLength = len(path)
 path = list(set(path))
-print(path)
-print(str(oldLength - len(path)) + " extraneous vars removed")
+#print(path)
+#print(str(oldLength - len(path)) + " extraneous vars removed")
 path = ';'.join(path)
+#print(path)
 
-os.putenv("PATH",path)
+os.system("setx PATH \"" + str(path) + "\"")
 
 print("If you see no change in the PATH variable, that means you didn't run this with administrative privileges. Try again.")
